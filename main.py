@@ -16,6 +16,7 @@ dataset.append(
 import matplotlib
 import matplotlib.pyplot as plt
 
+plt.style.use('classic')
 plt.rcParams["figure.figsize"] = (20,15)
 
 signal_axis = 244
@@ -67,12 +68,12 @@ ret,thresh4 = cv2.threshold(img, 63, 255,cv2.THRESH_TOZERO)
 ret,thresh5 = cv2.threshold(img, 63, 255,cv2.THRESH_TOZERO_INV)
 
 titles = ['Original Image','BINARY','BINARY_INV','TRUNC','TOZERO','TOZERO_INV']
-images = [img, thresh1, thresh2, thresh3, thresh4]
+images = [img, thresh1, thresh2, thresh3, thresh4, thresh5]
 
 titles = ['BINARY','BINARY_INV','TRUNC','TOZERO']
-images = [thresh1, thresh2, thresh3, thresh4, thresh5]
+images = [thresh1, thresh2, thresh3, thresh4]
 
-for i in range(6):
+for i in range(len(images)):
     plt.imshow(images[i],'gray')
     plt.title(titles[i])
     plt.xticks([]),plt.yticks([])
